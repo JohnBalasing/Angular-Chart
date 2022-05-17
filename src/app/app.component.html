@@ -1,0 +1,130 @@
+<app-dialogbox></app-dialogbox>
+<div class="row">
+  <div class="col-9">
+    <div class="flex">
+      <div class="flex-item">
+        <div class="chart-wrapper">
+        <canvas baseChart
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    ></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3 mt-4">
+    <div class="example-container" cdkDropListGroup>
+      
+    
+    <div class="dragdrop-menu">
+      <div class="row title_card">
+        <h5>Add life events</h5>
+      </div>
+      <div 
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      >
+      <div class="example-box" (cdkDragDropped)="show(item)" *ngFor="let item of todo" cdkDrag>
+        <img src="{{item.icon}}" alt="">
+        <p>{{item.name}}</p>
+      </div> 
+    </div>
+  
+    
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Goal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-dialog">
+
+          
+          <div class="modal-content">
+
+            <div class="form-group">
+              <label class="modal-title"> Goal Title</label>
+              <mat-form-field appearance="fill">
+                <img class="input_img" src="{{modalIcon}}" alt="">
+                <input type="text" placeholder="{{modalActivity}}" class="form-control" id="name"
+                   name="name">
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="modal-title"> Goal priority</label>
+              
+              <div class="row tab-cont">
+                <div class="col-4 tab tab-active" ><img class="input_img" src="assets/images/ic-need.png" alt=""> Need</div>
+                <div class="col-4 tab" ><img class="input_img" src="assets/images/ic-desire.png" alt=""> Desire</div>
+                <div class="col-4 tab"><img class="input_img" src="assets/images/ic-dreams.png" alt=""> Dreams</div>
+              </div>
+            </div>
+
+            <div class="d-flex  counter-parent" >
+              <div class="form-group mt-4 ">
+                <label class="modal-title"> Goal amount</label>
+                <div class="d-flex btn-c">
+                  <button class="btn-m ">-</button>
+                  <input class="txt-counter" type="text" placeholder="12.5 lac">
+                  <button class="btn-p ">+</button>
+                </div>
+              </div>
+
+              <div class="form-group mt-4 ">
+                <label class="modal-title"> Goal year</label>
+                <div class="d-flex btn-c">
+                  <button class="btn-m ">-</button>
+                  <input class="txt-counter" type="text" placeholder="Jan 2030">
+                  <button class="btn-p ">+</button>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLEAR</button>
+        <button type="button" class="btn btn-primary">SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
